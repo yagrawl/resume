@@ -25,6 +25,9 @@
     font-weight: 400;
 }
 
+a, a:hover {
+    text-decoration: none !important;
+}
 /* Print paper CSS layout -- begins */
 body {
     width: 100%;
