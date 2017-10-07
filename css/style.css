@@ -28,6 +28,13 @@
 a, a:hover {
     text-decoration: none !important;
 }
+
+@media print {
+  a[href]:after {
+    content: none !important;
+  }
+}
+
 /* Print paper CSS layout -- begins */
 body {
     width: 100%;
@@ -54,7 +61,7 @@ body {
 @media print {
     html, body {
         width: 210mm;
-        height: 297mm;        
+        height: 297mm;
     }
 
     .page {
@@ -182,4 +189,3 @@ body {
 .details > p {
     margin: 0;
 }
-
