@@ -442,6 +442,43 @@ function buildResume() {
 
     experience.appendChild(p);
     experience.appendChild(hr);
+
+    for(let i = 0; i < details.experience.length; i++) {
+        var dets = document.createElement('div');
+        dets.className = 'details';
+
+        var p = document.createElement('p');
+        var span = document.createElement('span');
+
+        p.className = 'details-title';
+        span.className = 'location';
+
+        p.textContent = details.experience[i].company + ' ';
+        span.textContent = details.experience[i].location.toUpperCase();
+        p.appendChild(span);
+        dets.appendChild(p);
+
+        var p = document.createElement('p');
+        var span = document.createElement('span');
+        var italics = document.createElement('i');
+
+        p.className = 'position';
+        span.className = 'duration';
+
+
+        p.textContent = details.experience[i].position + ' · ';
+        span.textContent = details.experience[i].duration;
+        italics.appendChild(span);
+        p.appendChild(italics);
+        dets.appendChild(p);
+
+        var p = document.createElement('p');
+        p.className = 'summary';
+        p.textContent = details.experience[i].description;
+        dets.appendChild(p);
+
+        experience.appendChild(dets);
+    }
     page.appendChild(experience);
 
 
