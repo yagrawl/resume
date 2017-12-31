@@ -1,22 +1,53 @@
 var resume;
+var details = {
+    name: {},
+    contact: {},
+    experience: [],
+    college: [],
+    projects: [],
+    skills: []
+};
 
 function getName() {
-    var firstname = document.getElementById('firstname').value;
-    var lastname = document.getElementById('lastname').value;
+    details.name.firstname = document.getElementById('firstname').value;
+    details.name.lastname = document.getElementById('lastname').value;
     breakdown();
     build('contact');
 }
 
 function getContact() {
-    var website = document.getElementById('website').value;
-    var email = document.getElementById('email').value;
-    var github = document.getElementById('github').value;
-    var number = document.getElementById('number').value;
-    var linkedin = document.getElementById('linkedin').value;
-    var location = document.getElementById('location').value;
+    details.contact.website = document.getElementById('website').value;
+    details.contact.email = document.getElementById('email').value;
+    details.contact.github = document.getElementById('github').value;
+    details.contact.number = document.getElementById('number').value;
+    details.contact.linkedin = document.getElementById('linkedin').value;
+    details.contact.location = document.getElementById('location').value;
     breakdown();
     build('experience');
 
+}
+
+function getExperience() {
+    details.experience.push({
+        company: document.getElementById('companyname').value,
+        position: document.getElementById('position').value,
+        duration: document.getElementById('duration').value,
+        location: document.getElementById('location').value,
+        description: document.getElementById('descriptionExp').value
+    });
+    breakdown();
+    build('college');
+}
+
+function getCollege() {
+    details.college.push({
+        name: document.getElementById('collegename').value,
+        major: document.getElementById('major').value,
+        duration: document.getElementById('collegeduration').value,
+        courses: document.getElementById('courses').value,
+    });
+    breakdown();
+    build('projects');
 }
 
 function build(status){
@@ -25,12 +56,20 @@ function build(status){
     var form = document.createElement('div');
     var maintext = document.createElement('p');
     var submit = document.createElement('input');
+    var addmore = document.createElement('input');
 
     submit.className = 'submit-button';
     submit.type = 'submit';
+
+    addmore.className = 'add-more-button';
+    addmore.type = 'submit';
+    addmore.value = '+';
+
     form.className = 'input-area';
     form.id = 'input-area';
     maintext.className = 'input-text-main';
+
+    var addmoreFlag = 0;
 
     switch (status) {
         case 'contact':
@@ -66,11 +105,25 @@ function build(status){
             break;
 
         case 'experience':
-            expCount = 1;
             maintext.textContent = 'Experience';
             form.appendChild(maintext);
 
             form = createExperience(form);
+            submit.value = 'Next';
+            addmore.setAttribute('onclick','addMoreExperience()');
+            submit.setAttribute('onclick','getExperience()');
+            addmoreFlag = 1;
+            break;
+
+        case 'college':
+            maintext.textContent = 'College';
+            form.appendChild(maintext);
+
+            form = createCollege(form);
+            submit.value = 'Next';
+            addmore.setAttribute('onclick','addMoreCollege()');
+            submit.setAttribute('onclick','getCollege()');
+            addmoreFlag = 1;
             break;
 
         default:
@@ -78,6 +131,10 @@ function build(status){
     }
 
     var padding = document.createElement('p');
+
+    if(addmoreFlag) {
+        padding.appendChild(addmore);
+    }
 
     padding.appendChild(submit);
     form.appendChild(padding);
@@ -94,7 +151,7 @@ function createExperience(form) {
         input.style.width = '45%';
         input.type = 'text';
         input.placeholder = label;
-        input.id = label.replace(/\s/g,'').toLowerCase() + expCount;
+        input.id = label.replace(/\s/g,'').toLowerCase();
         form.appendChild(input);
     });
 
@@ -103,9 +160,63 @@ function createExperience(form) {
     bigtext.wrap = 'hard';
     bigtext.rows = '3';
     bigtext.placeholder = 'Description';
+    bigtext.id = 'descriptionExp';
     form.appendChild(bigtext);
 
     return form;
+}
+
+function createCollege(form) {
+    var input = document.createElement('input');
+    input.className = 'text-bar input-text';
+    input.style.width = '92%';
+    input.type = 'text';
+    input.placeholder = 'College Name';
+    input.id = 'collegename';
+    form.appendChild(input);
+
+    var inputs = ['Major', 'College Duration'];
+    inputs.forEach(function(label) {
+        var input = document.createElement('input');
+        input.className = 'text-bar input-text';
+        input.style.width = '45%';
+        input.type = 'text';
+        input.placeholder = label;
+        input.id = label.replace(/\s/g,'').toLowerCase();
+        form.appendChild(input);
+    });
+
+    var bigtext = document.createElement('textarea');
+    bigtext.className = 'text-area input-text'
+    bigtext.wrap = 'hard';
+    bigtext.rows = '3';
+    bigtext.placeholder = 'Courses';
+    bigtext.id = 'courses';
+    form.appendChild(bigtext);
+    return form;
+}
+
+function addMoreExperience() {
+    details.experience.push({
+        company: document.getElementById('companyname').value,
+        position: document.getElementById('position').value,
+        duration: document.getElementById('duration').value,
+        location: document.getElementById('location').value,
+        description: document.getElementById('descriptionExp').value
+    });
+    breakdown();
+    build('experience');
+}
+
+function addMoreCollege() {
+    details.college.push({
+        name: document.getElementById('collegename').value,
+        major: document.getElementById('major').value,
+        duration: document.getElementById('collegeduration').value,
+        courses: document.getElementById('courses').value,
+    });
+    breakdown();
+    build('experience');
 }
 
 function breakdown() {
