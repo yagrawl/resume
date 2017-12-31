@@ -9,9 +9,10 @@ var details = {
 };
 
 function checkStatus() {
-    if(typeof localStorage.details.name !== 'undefined') {
+    var retrievedObject = localStorage.getItem('storeDetails');
+    if(typeof retrievedObject.name !== 'undefined') {
         details = localStorage.details;
-        buildResume();
+        buildResume(1);
     }
 }
 
@@ -73,8 +74,8 @@ function getSkills() {
         skills: document.getElementById('skills').value,
     });
     breakdown();
-    localStorage.details = details;
-    buildResume();
+    storage();
+    buildResume(0);
 }
 
 function build(status){
@@ -334,8 +335,14 @@ function breakdown() {
     form.parentNode.removeChild(form);
 }
 
-function buildResume() {
+function storage() {
+    localStorage.setItem('storeDetails', JSON.stringify(details));
+}
 
+function buildResume(flag) {
+    if(flag){
+        var details = localStorage.getItem('storeDetails');
+    }
     var title = document.getElementsByTagName('title')[0];
     var body = document.getElementsByTagName('body')[0];
     var page = document.createElement('div');
