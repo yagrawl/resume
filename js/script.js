@@ -50,6 +50,25 @@ function getCollege() {
     build('projects');
 }
 
+function getProjects() {
+    details.projects.push({
+        name: document.getElementById('projectname').value,
+        url: document.getElementById('url').value,
+        description: document.getElementById('projectdescription').value,
+    });
+    breakdown();
+    build('skills');
+}
+
+function getSkills() {
+    details.skills.push({
+        skilldiv: document.getElementById('skillarea').value,
+        skills: document.getElementById('skills').value.split(','),
+    });
+    breakdown();
+    buildResume();
+}
+
 function build(status){
 
     var body = document.getElementsByTagName('body')[0];
@@ -126,6 +145,28 @@ function build(status){
             addmoreFlag = 1;
             break;
 
+        case 'projects':
+            maintext.textContent = 'Projects';
+            form.appendChild(maintext);
+
+            form = createProject(form)
+            submit.value = 'Next';
+            addmore.setAttribute('onclick','addMoreProjects()');
+            submit.setAttribute('onclick','getProjects()');
+            addmoreFlag = 1;
+            break;
+
+        case 'skills':
+            maintext.textContent = 'Skills';
+            form.appendChild(maintext);
+
+            form = createSkills(form)
+            submit.value = 'Submit';
+            addmore.setAttribute('onclick','addMoreSkills()');
+            submit.setAttribute('onclick','getSkills()');
+            addmoreFlag = 1;
+            break;
+
         default:
             alert('Error');
     }
@@ -196,6 +237,48 @@ function createCollege(form) {
     return form;
 }
 
+function createProject(form) {
+    var inputs = ['Project Name', 'Url'];
+    inputs.forEach(function(label) {
+        var input = document.createElement('input');
+        input.className = 'text-bar input-text';
+        input.style.width = '45%';
+        input.type = 'text';
+        input.placeholder = label;
+        input.id = label.replace(/\s/g,'').toLowerCase();
+        form.appendChild(input);
+    });
+
+    var bigtext = document.createElement('textarea');
+    bigtext.className = 'text-area input-text'
+    bigtext.wrap = 'hard';
+    bigtext.rows = '3';
+    bigtext.placeholder = 'Project Description';
+    bigtext.id = 'projectdescription';
+    form.appendChild(bigtext);
+    return form;
+}
+
+function createSkills(form) {
+
+    var input = document.createElement('input');
+    input.className = 'text-bar input-text';
+    input.type = 'text';
+    input.placeholder = 'Skill Area';
+    input.id = 'skillarea';
+    form.appendChild(input);
+
+    var input = document.createElement('input');
+    input.className = 'text-bar input-text';
+    input.style.width = '92%';
+    input.type = 'text';
+    input.placeholder = 'Skills (comma seperated list)';
+    input.id = 'skills';
+    form.appendChild(input);
+
+    return form;
+}
+
 function addMoreExperience() {
     details.experience.push({
         company: document.getElementById('companyname').value,
@@ -216,10 +299,34 @@ function addMoreCollege() {
         courses: document.getElementById('courses').value,
     });
     breakdown();
-    build('experience');
+    build('college');
+}
+
+function addMoreProjects() {
+    details.projects.push({
+        name: document.getElementById('projectname').value,
+        url: document.getElementById('url').value,
+        description: document.getElementById('projectdescription').value,
+    });
+    breakdown();
+    build('projects');
+}
+
+function addMoreSkills() {
+    details.skills.push({
+        skilldiv: document.getElementById('skillarea').value,
+        skills: document.getElementById('skills').value,
+    });
+    breakdown();
+    build('skills');
 }
 
 function breakdown() {
     var form = document.getElementById('input-area');
     form.parentNode.removeChild(form);
+}
+
+function buildResume() {
+    localStorage.details = details;
+    console.log(details);
 }
