@@ -23,4 +23,4 @@ To use this template, simply clone the repo and edit my text content with yours.
 
 ## Preview
 
-![resume](https://user-images.githubusercontent.com/8282626/34460447-95fce378-ee34-11e7-851f-f0b4fc07fbbf.jpg)
+![resume](https://user-images.githubusercontent.com/8282626/34460463-488e4f9a-ee35-11e7-80fb-bb4a22bb6547.png)
