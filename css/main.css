@@ -1,0 +1,109 @@
+/* Importing all the fonts with weights */
+@font-face {
+    font-family: Proxima Nova;
+    src: url(fonts/ProximaNovaThin.otf);
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: Proxima Nova;
+    src: url(fonts/ProximaNovaAltRegular.otf);
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: Proxima Nova;
+    src: url(fonts/ProximaSemibold.otf);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Proxima Nova;
+    src: url('fonts/Proxima Nova Semibold.otf');
+    font-weight: 400;
+}
+
+a, a:hover {
+    text-decoration: none !important;
+}
+
+body {
+    overflow-x: hidden !important;
+}
+
+.input-area {
+    max-width: 540px;
+    width: 100%;
+    margin: 6vh auto;
+}
+
+@media screen and (max-width: 620px) {
+    .input-area {
+        margin-left: 5vh;
+        margin-right: 5vh;
+    }
+}
+
+.input-text-main {
+    font-family: Proxima Nova;
+    font-weight: 100;
+    font-size: 36px;
+    color: #000;
+}
+
+.input-text {
+    font-family: Proxima Nova;
+    font-size: 16px;
+    font-weight: 200;
+    color: black;
+}
+
+input.text-bar {
+  margin: 0 auto;
+  margin-top: 10px;
+  width: 50%;
+  height: 45px;
+  padding: 0 20px;
+  border: 1px solid #E7E5DF;
+  border-radius: 5px;
+  outline: none;
+}
+
+input.text-bar:focus {
+  border: 1px solid #E7E5DF;
+  transition: 0.35s ease;
+  color: #D65553;
+}
+
+input.text-bar:focus::-webkit-input-placeholder {
+  transition: opacity 0.45s ease;
+  opacity: 0;
+}
+
+input.text-bar:focus::-moz-placeholder {
+  transition: opacity 0.45s ease;
+  opacity: 0;
+}
+
+input.text-bar:focus:-ms-placeholder {
+  transition: opacity 0.45s ease;
+  opacity: 0;
+}
+
+.submit-button {
+    border: 1px solid #282C34;
+    margin-top: 20px;
+    width: 150px;
+    height: 35px;
+    background-color: #282C34;
+    font-family: Proxima Nova;
+    font-size: 16px;
+    font-weight: 100;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.fa {
+    padding-right: 8px;
+}

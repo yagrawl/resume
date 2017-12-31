@@ -2,26 +2,36 @@
 <html>
     <head>
 
-        <title>Resume</title>
+        <title>Resume - Builder</title>
 
         <!-- SEO and mobile format declarations -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
+        <meta name="description" content="Resume Builder">
         <meta name="keywords" content="">
         <meta charset="UTF-8">
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
-
-        <!-- Fonts -->
-        <!-- Can be changed: Import your font from Google fonts and change the style.css file -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,600,700&amp;subset=latin-ext" rel="stylesheet">
 
         <!-- Favicon -->
         <link rel="shortcut icon" type="image/x-icon" href="img/webicon.png" />
 
         <!-- Stylesheets -->
-        <link href="css/style.css" media="all" rel="stylesheet">
+        <link href="css/main.css" media="all" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
+    </head>
+    <body>
+        <div id="input-area" class="input-area">
+            <p class="input-text-main">Enter Your Name</p>
+            <input id="firstname" class="text-bar input-text" type="text" placeholder="First Name"></input>
+            <input id="lastname" class="text-bar input-text" type="text" placeholder="Last Name"></input>
+            <p>
+                <input id="name" class="submit-button" type="submit" value="Next" onclick="getName()"></input>
+            </p>
+        </div>
+
+        <!--Font Awesome -->
+        <script src="https://use.fontawesome.com/8c86fcede2.js"></script>
+        
         <!--jQuery -->
         <script src="js/jquery.min.js"></script>
 
@@ -31,120 +41,5 @@
         <!--JavaScript Bootstrap -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-        <!--Font Awesome -->
-        <script src="https://use.fontawesome.com/8c86fcede2.js"></script>
-
-        <!-- Analytics -->
-        <!-- Global Site Tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-65874311-8"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments)};
-          gtag('js', new Date());
-
-          gtag('config', 'UA-65874311-8');
-        </script>
-
-
-    </head>
-    </head>
-    <body onload="">
-        <div class="page">
-            <div class="intro">
-                <div class="name">
-                    <p class="first-name">YASH&nbsp;<span class="last-name">AGRAWAL</span></p>
-                </div>
-                <div class="contact">
-                    <table>
-                        <tr>
-                            <td><a target="_blank" href="https://yagrawal.com"><p class="contact-detail">https://yagrawal.com</p></a></td>
-                            <td style="padding-left:5em"><a href="mailto:yagrawl2@gmail.com"><p class="contact-detail">yagrawl2@gmail.com</p></a></td>
-                        </tr>
-                        <tr>
-                            <td><a target="_blank" href="https://github.com/yagrawl"><p class="contact-detail">github.com/yagrawl</p></a></td>
-                            <td style="padding-left:5em"><p class="contact-detail">+1 (217) 819-1201</p></td>
-                        </tr>
-                        <tr>
-                            <td><a target="_blank" href="https://medium.com/@yagrawl"><p class="contact-detail">medium.com/@yagrawl</p></a></td>
-                            <td style="padding-left:5em"><p class="contact-detail">Champaign, IL</p></td>
-                        </tr>
-                    </table>
-                </div>
-                <div style="clear:left"></div>
-            </div>
-            <div class="section">
-                <p class="section-title">EXPERIENCE</p>
-                <hr style="margin-top:-5px;">
-                <div class="details">
-                    <p class="details-title">Braintree <span class="location">SAN FRANCISCO, CA</span></p>
-                    <p class="position">Software Engineering Intern &#183; <i><span class="duration">Jun 18' - Aug 18'</span></i></p>
-                    <p class="summary">Incoming software engineering intern at Braintree payments.</p>
-                </div>
-                <div class="details">
-                    <p class="details-title">Mastercard <span class="location">ST. LOUIS, MO</span></p>
-                    <p class="position">Frontend Engineering Intern &#183; <i><span class="duration">Jun 17' - Aug 17'</span></i></p>
-                    <p class="summary">Worked with a design team on updating the corporate social networking websites using HTML, CSS and JavaScript. Also worked on the team that created the video portal frontend from scratch for new-employee education system and the live video portal used by 10000+ employees worldwide.</p>
-                </div>
-            </div>
-
-            <div class="section">
-                <p class="section-title">EDUCATION</p>
-                <hr style="margin-top:-5px;">
-                <div class="details">
-                    <p class="details-title">University of Illinois at Urbana-Champaign <span class="location"></span></p>
-                    <p class="position">Computer Engineering &#183; <i><span class="duration">Aug 14' - Dec 18'</span></i></p>
-                    <p class="summary">Human Computer Interaction, User Interface Design, Artificial Intelligence, Data Structures, Design Studio, Digital Interaction Design, Computer Systems Engineering, Database Systems, Machine Learning
-                    </p>
-                </div>
-            </div>
-
-            <div class="section">
-                <p class="section-title">PROJECTS</p>
-                <hr style="margin-top:-5px;">
-                <div class="details">
-                    <p class="details-title">Codeburst.io  <a target="_blank" href="https://codeburst.io/@yagrawl"><span class="location">https://codeburst.io/@yagrawl</span></a></p>
-                    <p class="summary">Regularly publishing articles on Medium hosted by codeburst.io on fundamental ES6+ JavaScript concepts like generators, promises, hoisting and other Front End Development techniques. More than 10000+ reads on the articles.</p>
-                </div>
-                <div class="details">
-                    <p class="details-title">Moviebot  <a target="_blank" href="https://m.me/moviebots"><span class="location">https://m.me/moviebots</span></p></a>
-                    <p class="summary">Facebook Messenger bot that recommends movies using Google's Dialogflow API and TMDb API. Available on Messenger Discover for the past year with 1000+ users every month.</p>
-                </div>
-                <div class="details">
-                    <p class="details-title">Musify  <a target="_blank" href="https://yagrawal.com/musify.html"><span class="location">https://yagrawal.com/musify.html</span></p></a>
-                    <p class="summary">Made a project which uses Clarifai's image recognition API on a custom model to analyze the mood of the video and then uses JukeDeck to add appropriate background music. The hack is a CLI built in Python using libraries like : PyDub, Pafy, et cetera. Featured on Clarifai's blog.</p>
-                </div>
-                <div class="details">
-                    <p class="details-title">Task.  <a target="_blank" href="https://yagrawl.github.io/task"><span class="location">https://yagrawl.github.io/task</span></p></a>
-                    <p class="summary">A Todo webapp designed in react based on my own design. Uses the browser's local storage to keep track of the users' details and progress. The website is responsive and developed with a strong emphasis on best practices.</p>
-                </div>
-
-                <!-- <div class="details">
-                    <p class="details-title">Leapflix</p>
-                    <p class="summary">Built a chrome extension that skips through TV show intros on Netflix using the Chrome.tabs API. The extension had more than a 100+ organic downloads.</p>
-                </div> -->
-            </div>
-
-            <div class="section">
-                <p class="section-title">SKILLS</p>
-                <hr style="margin-top:-5px;">
-                <div class="details">
-                    <table>
-                        <tr>
-                            <td><p class="skill-class">PROGRAMMING LANGUAGES </p></td>
-                            <td style="padding-left:5em"><p class="skill-set">JavaScript &#183; Python &#183; HTML &#183; CSS &#183; Matlab &#183; C++ &#183; C</p></td>
-                        </tr>
-                        <tr>
-                            <td><p class="skill-class">FRAMEWORKS &amp; LIBRARIES </p></td>
-                            <td style="padding-left:5em"><p class="skill-set">Bootstrap &#183; React &#183; Flask &#183; Sass &#183; NodeJS &#183; AngularJS</p></td>
-                        </tr>
-                        <tr>
-                            <td><p class="skill-class">TOOLS </p></td>
-                            <td style="padding-left:5em"><p class="skill-set">Sketch &#183; Figma &#183; Origami &#183; FramerJS &#183; Affinity Designer &#183; COMSOL®</p></td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-
-        </div>
     </body>
 </html>
