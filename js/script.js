@@ -327,6 +327,123 @@ function breakdown() {
 }
 
 function buildResume() {
-    localStorage.details = details;
-    console.log(details);
+    //localStorage.details = details;
+    var title = document.getElementsByTagName('title')[0];
+    var body = document.getElementsByTagName('body')[0];
+    var page = document.createElement('div');
+    page.className = 'page';
+    title.textContent = 'Resume';
+
+    var intro = document.createElement('div');
+    intro.className = 'intro';
+    var name = document.createElement('div');
+    name.className = 'name';
+
+    var firstName = document.createElement('p');
+    var lastName = document.createElement('span');
+    firstName.className = 'first-name';
+    lastName.className = 'last-name';
+    firstName.textContent = details.name.firstname.toUpperCase() + ' ';
+    lastName.textContent = details.name.lastname.toUpperCase();
+
+    var contact = document.createElement('div');
+    var table = document.createElement('table');
+
+    var tr = document.createElement('tr');
+    var td = document.createElement('td');
+    var a = document.createElement('a');
+    a.target = '_blank';
+    a.href = 'https://' + details.contact.website;
+    var p = document.createElement('p');
+    p.className = 'contact-detail';
+    p.textContent = details.contact.website;
+
+    a.appendChild(p);
+    td.appendChild(a);
+    tr.appendChild(td);
+
+    var td = document.createElement('td');
+    td.style.paddingLeft = '5em';
+    var a = document.createElement('a');
+    a.target = '_blank';
+    a.href = 'mailto:' + details.contact.email;
+    var p = document.createElement('p');
+    p.className = 'contact-detail';
+    p.textContent = details.contact.email;
+
+    a.appendChild(p);
+    td.appendChild(a);
+    tr.appendChild(td);
+    table.appendChild(tr);
+
+    var tr = document.createElement('tr');
+    var td = document.createElement('td');
+    var a = document.createElement('a');
+    a.target = '_blank';
+    a.href = 'https://' + details.contact.github;
+    var p = document.createElement('p');
+    p.className = 'contact-detail';
+    p.textContent = details.contact.github;
+
+    a.appendChild(p);
+    td.appendChild(a);
+    tr.appendChild(td);
+
+    var td = document.createElement('td');
+    td.style.paddingLeft = '5em';
+    var p = document.createElement('p');
+    p.className = 'contact-detail';
+    p.textContent = details.contact.number;
+
+    td.appendChild(p);
+    tr.appendChild(td);
+    table.appendChild(tr);
+
+    var tr = document.createElement('tr');
+    var td = document.createElement('td');
+    var a = document.createElement('a');
+    a.target = '_blank';
+    a.href = 'https://' + details.contact.linkedin;
+    var p = document.createElement('p');
+    p.className = 'contact-detail';
+    p.textContent = details.contact.linkedin;
+
+    a.appendChild(p);
+    td.appendChild(a);
+    tr.appendChild(td);
+
+    var td = document.createElement('td');
+    td.style.paddingLeft = '5em';
+    var p = document.createElement('p');
+    p.className = 'contact-detail';
+    p.textContent = details.contact.location;
+
+    td.appendChild(p);
+    tr.appendChild(td);
+    table.appendChild(tr);
+
+    contact.appendChild(table);
+
+    firstName.appendChild(lastName);
+    name.appendChild(firstName);
+    intro.appendChild(name);
+    intro.appendChild(contact);
+    var left = document.createElement('div');
+    left.style.clear = 'left';
+    intro.appendChild(left);
+    page.appendChild(intro);
+
+    var experience = document.createElement('section');
+    var p = document.createElement('p');
+    var hr = document.createElement('hr');
+    hr.style.marginTop = '-5px';
+    p.className = 'section-title';
+    p.textContent = 'EXPERIENCE';
+
+    experience.appendChild(p);
+    experience.appendChild(hr);
+    page.appendChild(experience);
+
+
+    body.appendChild(page);
 }
