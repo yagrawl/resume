@@ -8,7 +8,15 @@ function getName() {
 }
 
 function getContact() {
-    alert('success so far');
+    var website = document.getElementById('website').value;
+    var email = document.getElementById('email').value;
+    var github = document.getElementById('github').value;
+    var number = document.getElementById('number').value;
+    var linkedin = document.getElementById('linkedin').value;
+    var location = document.getElementById('location').value;
+    breakdown();
+    build('experience');
+
 }
 
 function build(status){
@@ -21,6 +29,7 @@ function build(status){
     submit.className = 'submit-button';
     submit.type = 'submit';
     form.className = 'input-area';
+    form.id = 'input-area';
     maintext.className = 'input-text-main';
 
     switch (status) {
@@ -54,6 +63,10 @@ function build(status){
             submit.value = 'Next';
             submit.setAttribute('onclick','getContact()');
 
+            break;
+
+        case 'experience':
+            alert('experience');
             break;
 
         default:

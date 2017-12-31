@@ -104,6 +104,19 @@ input.text-bar:focus:-ms-placeholder {
     text-align: center;
 }
 
+.add-more-button {
+    width: 35px;
+    height: 35px;
+    background-color: #282C34;
+    font-family: Proxima Nova;
+    font-size: 16px;
+    font-weight: 400;
+    color: white;
+    border-radius: 35px;
+    text-align: center;
+    margin-right: 10px;
+}
+
 .fa {
     padding-right: 8px;
 }
