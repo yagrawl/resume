@@ -611,7 +611,7 @@ function buildResume() {
         td.style.paddingLeft = '5em';
         var p = document.createElement('p');
         p.className = 'skill-set';
-        p.textContent = details.skills[i].skills.replace(',', ' ·');
+        p.textContent = details.skills[i].skills.replace('/,/g', ' ·');
 
         td.appendChild(p);
         tr.appendChild(td);
