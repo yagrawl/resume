@@ -8,6 +8,13 @@ var details = {
     skills: []
 };
 
+function checkStatus() {
+    if(typeof localStorage.details.name !== 'undefined') {
+        details = localStorage.details;
+        buildResume();
+    }
+}
+
 function getName() {
     details.name.firstname = document.getElementById('firstname').value;
     details.name.lastname = document.getElementById('lastname').value;
@@ -63,9 +70,10 @@ function getProjects() {
 function getSkills() {
     details.skills.push({
         skilldiv: document.getElementById('skillarea').value,
-        skills: document.getElementById('skills').value.split(','),
+        skills: document.getElementById('skills').value,
     });
     breakdown();
+    localStorage.details = details;
     buildResume();
 }
 
@@ -327,7 +335,7 @@ function breakdown() {
 }
 
 function buildResume() {
-    //localStorage.details = details;
+
     var title = document.getElementsByTagName('title')[0];
     var body = document.getElementsByTagName('body')[0];
     var page = document.createElement('div');
@@ -573,7 +581,38 @@ function buildResume() {
 
     skills.appendChild(p);
     skills.appendChild(hr);
+
+    var dets = document.createElement('div');
+    dets.className = 'details';
+
+    var table = document.createElement('table');
+
+    for(let i = 0; i < details.skills.length; i++) {
+        var tr = document.createElement('tr');
+        var td = document.createElement('td');
+        var p = document.createElement('p');
+        p.className = 'skill-class';
+        p.textContent = details.skills[i].skilldiv.toUpperCase();
+
+        td.appendChild(p);
+        tr.appendChild(td);
+
+        var td = document.createElement('td');
+        td.style.paddingLeft = '5em';
+        var p = document.createElement('p');
+        p.className = 'skill-set';
+        p.textContent = details.skills[i].skills.replace(',', ' ·');
+
+        td.appendChild(p);
+        tr.appendChild(td);
+
+        table.appendChild(tr);
+    }
+
+    dets.appendChild(table);
+    skills.appendChild(dets);
+
     page.appendChild(skills);
-    
+
     body.appendChild(page);
 }
