@@ -433,7 +433,8 @@ function buildResume() {
     intro.appendChild(left);
     page.appendChild(intro);
 
-    var experience = document.createElement('section');
+    var experience = document.createElement('div');
+    experience.className = 'section';
     var p = document.createElement('p');
     var hr = document.createElement('hr');
     hr.style.marginTop = '-5px';
@@ -481,6 +482,98 @@ function buildResume() {
     }
     page.appendChild(experience);
 
+    var college = document.createElement('div');
+    college.className = 'section';
+    var p = document.createElement('p');
+    var hr = document.createElement('hr');
+    hr.style.marginTop = '-5px';
+    p.className = 'section-title';
+    p.textContent = 'EDUCATION';
 
+    college.appendChild(p);
+    college.appendChild(hr);
+
+    for(let i = 0; i < details.college.length; i++) {
+        var dets = document.createElement('div');
+        dets.className = 'details';
+
+        var p = document.createElement('p');
+        var span = document.createElement('span');
+
+        p.className = 'details-title';
+
+        p.textContent = details.college[i].name;
+        dets.appendChild(p);
+
+        var p = document.createElement('p');
+        var span = document.createElement('span');
+        var italics = document.createElement('i');
+
+        p.className = 'position';
+        span.className = 'duration';
+
+
+        p.textContent = details.college[i].major + ' · ';
+        span.textContent = details.college[i].duration;
+        italics.appendChild(span);
+        p.appendChild(italics);
+        dets.appendChild(p);
+
+        var p = document.createElement('p');
+        p.className = 'summary';
+        p.textContent = details.college[i].courses;
+        dets.appendChild(p);
+
+        college.appendChild(dets);
+    }
+    page.appendChild(college);
+
+    var projects = document.createElement('div');
+    projects.className = 'section';
+    var p = document.createElement('p');
+    var hr = document.createElement('hr');
+    hr.style.marginTop = '-5px';
+    p.className = 'section-title';
+    p.textContent = 'PROJECTS';
+
+    projects.appendChild(p);
+    projects.appendChild(hr);
+
+    for(let i = 0; i < details.projects.length; i++) {
+        var dets = document.createElement('div');
+        dets.className = 'details';
+
+        var p = document.createElement('p');
+        var span = document.createElement('span');
+
+        p.className = 'details-title';
+        span.className = 'location';
+
+        p.textContent = details.projects[i].name + ' ';
+        span.textContent = details.projects[i].url;
+        p.appendChild(span);
+        dets.appendChild(p);
+
+        var p = document.createElement('p');
+        p.className = 'summary';
+        p.textContent = details.projects[i].description;
+        dets.appendChild(p);
+
+        projects.appendChild(dets);
+    }
+    page.appendChild(projects);
+
+    var skills = document.createElement('div');
+    skills.className = 'section';
+    var p = document.createElement('p');
+    var hr = document.createElement('hr');
+    hr.style.marginTop = '-5px';
+    p.className = 'section-title';
+    p.textContent = 'SKILLS';
+
+    skills.appendChild(p);
+    skills.appendChild(hr);
+    page.appendChild(skills);
+    
     body.appendChild(page);
 }
