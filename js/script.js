@@ -66,7 +66,11 @@ function build(status){
             break;
 
         case 'experience':
-            alert('experience');
+            expCount = 1;
+            maintext.textContent = 'Experience';
+            form.appendChild(maintext);
+
+            form = createExperience(form);
             break;
 
         default:
@@ -79,6 +83,29 @@ function build(status){
     form.appendChild(padding);
     body.appendChild(form);
 
+}
+
+function createExperience(form) {
+    var inputs = ['Company Name', 'Position', 'Duration', 'Location'];
+
+    inputs.forEach(function(label) {
+        var input = document.createElement('input');
+        input.className = 'text-bar input-text';
+        input.style.width = '45%';
+        input.type = 'text';
+        input.placeholder = label;
+        input.id = label.replace(/\s/g,'').toLowerCase() + expCount;
+        form.appendChild(input);
+    });
+
+    var bigtext = document.createElement('textarea');
+    bigtext.className = 'text-area input-text'
+    bigtext.wrap = 'hard';
+    bigtext.rows = '3';
+    bigtext.placeholder = 'Description';
+    form.appendChild(bigtext);
+
+    return form;
 }
 
 function breakdown() {

@@ -61,6 +61,7 @@ body {
 input.text-bar {
   margin: 0 auto;
   margin-top: 10px;
+  margin-right: 10px;
   width: 50%;
   height: 45px;
   padding: 0 20px;
@@ -88,6 +89,18 @@ input.text-bar:focus::-moz-placeholder {
 input.text-bar:focus:-ms-placeholder {
   transition: opacity 0.45s ease;
   opacity: 0;
+}
+
+textarea.text-area {
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-right: 10px;
+  width: 92%;
+  height: 100px;
+  padding: 10px 20px;
+  border: 1px solid #E7E5DF;
+  border-radius: 5px;
+  outline: none;
 }
 
 .submit-button {
