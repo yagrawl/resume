@@ -9,10 +9,16 @@ var details = {
 };
 
 function checkStatus() {
-    var retrievedObject = localStorage.getItem('storeDetails');
-    if(typeof retrievedObject.name !== 'undefined') {
-        details = localStorage.details;
-        buildResume(1);
+    var retrievedObject = JSON.parse(localStorage.getItem('storeDetails'));
+    try {
+        if(typeof retrievedObject.name !== 'undefined') {
+            details = retrievedObject;
+            console.log('here!');
+            buildResume();
+        }
+    }
+    catch (err){
+        console.log('localStorage Empty');
     }
 }
 
@@ -73,9 +79,8 @@ function getSkills() {
         skilldiv: document.getElementById('skillarea').value,
         skills: document.getElementById('skills').value,
     });
-    breakdown();
     storage();
-    buildResume(0);
+    buildResume();
 }
 
 function build(status){
@@ -339,10 +344,8 @@ function storage() {
     localStorage.setItem('storeDetails', JSON.stringify(details));
 }
 
-function buildResume(flag) {
-    if(flag){
-        var details = localStorage.getItem('storeDetails');
-    }
+function buildResume() {
+    breakdown();
     var title = document.getElementsByTagName('title')[0];
     var body = document.getElementsByTagName('body')[0];
     var page = document.createElement('div');
@@ -620,6 +623,15 @@ function buildResume(flag) {
     skills.appendChild(dets);
 
     page.appendChild(skills);
-
+    var createNew = document.createElement('img');
+    createNew.className = 'new no-print';
+    createNew.src = 'img/new.png';
+    createNew.setAttribute('onclick','startAgain()');
     body.appendChild(page);
+    body.appendChild(createNew);
+}
+
+function startAgain() {
+    localStorage.clear();
+    location.reload();
 }
