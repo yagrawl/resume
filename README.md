@@ -20,3 +20,7 @@ To use this template, simply clone the repo and edit my text content with yours.
 
 * Make it responsive
 * Make it scraper friendly
+
+## Preview
+
+![resume](https://user-images.githubusercontent.com/8282626/34460447-95fce378-ee34-11e7-851f-f0b4fc07fbbf.jpg)
